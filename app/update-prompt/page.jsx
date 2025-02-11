@@ -33,7 +33,11 @@ const UpdatePrompt = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!promptId) return alert("Missing PromptId!");
+      if (!promptId) {
+        alert("Missing PromptId!");
+        setIsSubmitting(false);
+        return;
+      }
 
     try {
       const response = await fetch(`/api/prompt/${promptId}`, {
